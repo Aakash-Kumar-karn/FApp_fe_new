@@ -35,77 +35,77 @@ let App = () => {
   const [alanInstance, setAlanInstance] = useState(null);
   const { totalPrice } = useSelector(state => state.pay);
 
-  useEffect(() => {
-    setAlanInstance(alanBtn({
-      key: '536cbf69313e565d5b46b5bdcf234ac52e956eca572e1d8b807a3e2338fdd0dc/stage',
-      onCommand: (commandData) => {
-        if (commandData.command === 'allItems') {
+  // useEffect(() => {
+  //   setAlanInstance(alanBtn({
+  //     key: '536cbf69313e565d5b46b5bdcf234ac52e956eca572e1d8b807a3e2338fdd0dc/stage',
+  //     onCommand: (commandData) => {
+  //       if (commandData.command === 'allItems') {
 
-          window.scrollBy(0, window.innerHeight);
+  //         window.scrollBy(0, window.innerHeight);
 
-        } else if (commandData.command === "myItem") {
-          let { foodId, qty } = commandData.data;
-          foodId = foodId.toString();
-          qty = qty.toString();
-          let noQty = 0;
-          if (qty === "to") {
-            noQty = 2;
-          } else if (qty === "three") {
-            noQty = 3;
-          } else if (qty === "four") {
-            noQty = 4;
-          } else if (qty === "five") {
-            noQty = 5;
-          } else {
-            noQty = 1;
-          }
-          while (noQty-- > 0) {
-            addToCart(foodId);
-          }
-          if (history.location.pathname === "/checkout") {
-            setTimeout(() => {
-              history.push("/");
-              alanInstance?.setVisualState({ data: "/checkout" });
-              history.push("/checkout");
-            }, 3000)
-          }
-        } else if (commandData.command === "removeItem") {
-          let { foodId, qty } = commandData.data;
-          console.log(foodId, qty);
-          foodId = foodId.toString();
-          qty = qty.toString();
-          let noQty = 0;
-          if (qty === "to") {
-            noQty = 2;
+  //       } else if (commandData.command === "myItem") {
+  //         let { foodId, qty } = commandData.data;
+  //         foodId = foodId.toString();
+  //         qty = qty.toString();
+  //         let noQty = 0;
+  //         if (qty === "to") {
+  //           noQty = 2;
+  //         } else if (qty === "three") {
+  //           noQty = 3;
+  //         } else if (qty === "four") {
+  //           noQty = 4;
+  //         } else if (qty === "five") {
+  //           noQty = 5;
+  //         } else {
+  //           noQty = 1;
+  //         }
+  //         while (noQty-- > 0) {
+  //           addToCart(foodId);
+  //         }
+  //         if (history.location.pathname === "/checkout") {
+  //           setTimeout(() => {
+  //             history.push("/");
+  //             alanInstance?.setVisualState({ data: "/checkout" });
+  //             history.push("/checkout");
+  //           }, 3000)
+  //         }
+  //       } else if (commandData.command === "removeItem") {
+  //         let { foodId, qty } = commandData.data;
+  //         console.log(foodId, qty);
+  //         foodId = foodId.toString();
+  //         qty = qty.toString();
+  //         let noQty = 0;
+  //         if (qty === "to") {
+  //           noQty = 2;
 
-          } else {
-            noQty = 1;
-          }
-          while (noQty-- > 0) {
-            console.log("----", noQty)
-            removeFromCart(foodId);
-          }
-          if (history.location.pathname === "/checkout") {
-            setTimeout(() => {
-              history.push("/");
-              history.push("/checkout");
-            }, 3000)
-          }
-        } else if (commandData.command === "showcart") {
-          dispatch(PayAction(false))
-          history.push('/checkout');
+  //         } else {
+  //           noQty = 1;
+  //         }
+  //         while (noQty-- > 0) {
+  //           console.log("----", noQty)
+  //           removeFromCart(foodId);
+  //         }
+  //         if (history.location.pathname === "/checkout") {
+  //           setTimeout(() => {
+  //             history.push("/");
+  //             history.push("/checkout");
+  //           }, 3000)
+  //         }
+  //       } else if (commandData.command === "showcart") {
+  //         dispatch(PayAction(false))
+  //         history.push('/checkout');
 
-        } else if (commandData.command === "payment") {
-          dispatch(PaymentAction(true));
-          dispatch(PayAction(true))
-        } else if (commandData.command === "homepage") {
-          setTimeout(() => {
-            history.push("/");
-          }, 3000)
-        }
-      }
-    }))
-  }, []);
+  //       } else if (commandData.command === "payment") {
+  //         dispatch(PaymentAction(true));
+  //         dispatch(PayAction(true))
+  //       } else if (commandData.command === "homepage") {
+  //         setTimeout(() => {
+  //           history.push("/");
+  //         }, 3000)
+  //       }
+  //     }
+  //   }))
+  // }, []);
 
   let addToCart = async (foodId) => {
     try {

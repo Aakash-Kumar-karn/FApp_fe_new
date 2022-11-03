@@ -66,6 +66,7 @@ const Checkout = () => {
           let res = await axios.get(
             `https://alaneats.herokuapp.com/api/food/${id}`
           );
+    console.log(`this is` ,res.data.data)
           return res.data.data;
         })
       );
