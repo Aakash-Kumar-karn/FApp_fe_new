@@ -126,7 +126,7 @@ const Checkout = () => {
             </div>
             {foodData.length > 0 ? (
               <>
-                <h1>Shopping Cart</h1>
+                <h1>Your Shopping Cart</h1>
                 <div className="checkout_items">
                   {foodData.map((foodItem) => (
                     <div className="foodItem_card">

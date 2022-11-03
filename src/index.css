@@ -8,6 +8,6 @@
 }
 
 body {
-  background-color: #eaeded;
-  /* background-color: blue !important; */
+  /* background-color: #eaeded; */
+  background-color: grey !important;
 }

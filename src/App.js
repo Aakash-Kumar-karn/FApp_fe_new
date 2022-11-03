@@ -136,12 +136,12 @@ let App = () => {
       <Route exact path="/">
         <Navbar />
         <MainImage />
-        <FoodRow type="fast food" />
-        <FoodRow type="sandwich" />
-        <FoodRow type="burger" />
-        <FoodRow type="noodles" />
-        <FoodRow type="pizza" />
-        <FoodRow type="drinks" />
+        {/* <FoodRow type="fast food" /> */}
+        <FoodRow type="Breakfast" />
+        <FoodRow type="Lunch" />
+        <FoodRow type="Dinner" />
+        <FoodRow type="Snacks" />
+        <FoodRow type="drink" />
         <Footer />
       </Route>
       <Route path="/signin">
